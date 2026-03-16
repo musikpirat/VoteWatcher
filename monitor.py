@@ -9,7 +9,13 @@ url = "https://votemanager-da.ekom21cdn.de/2026-03-15/06433007/praesentation/erg
 
 BOT_TOKEN = os.environ["BOT_TOKEN"]
 CHAT_ID = os.environ["CHAT_ID"]
-send("🚀 Test Nachricht: Telegram Verbindung OK")
+
+requests.post(
+    f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage",
+    data={"chat_id": CHAT_ID, "text": "Test Nachricht"}
+)
+
+
 STATE_FILE = "state.json"
 
 def send(msg):
@@ -36,6 +42,8 @@ def save_state(state):
 
 state = load_state()
 state["runs"] += 1
+
+send("🚀 Test Nachricht: Telegram Verbindung OK")
 
 try:
     # Seite abrufen
