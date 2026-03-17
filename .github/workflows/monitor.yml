@@ -1,9 +1,5 @@
 name: Wahlmonitor
 
-on:
-  schedule:
-    - cron: "*/1 * * * *"
-  workflow_dispatch:
 
 jobs:
   run:
